@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import Cart from "./components/Cart"
 import ProductList from "./components/ProductList"
 import Home from "./pages/Home"
+import Detail from "./pages/Detail"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/order-detail" element={<Detail />} />
       </Routes>
     </Router>
     </div>

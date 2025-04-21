@@ -18,9 +18,12 @@ function ProductList() {
   }, []);
 
   const handleAddCart = (product) => {
-    dispatch(addToCart(product));
-    navigate('/cart');  
-  
+   window.alert("Product Added to Cart")
+    dispatch(addToCart(product))
+  }
+  const handleOrderDetail = (product) => {
+    dispatch(addToCart(product))
+    navigate('/order-detail ', { state: product })
   }
 
   return (
@@ -42,13 +45,13 @@ function ProductList() {
             <h2 className="text-lg font-semibold text-white line-clamp-2">{product.title}</h2>
             <p className="text-indigo-600 font-bold text-xl mt-2">${product.price}</p>
             <div className='flex flex-row gap-12'>
-            <button onClick={() => handleAddCart(product)} className="mt-4  bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-2 rounded-xl transition-all">
-              Add to Cart
-            </button>
+              <button onClick={() => handleAddCart(product)} className="mt-4  bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-2 rounded-xl transition-all">
+                Add to Cart
+              </button>
 
-            <button onClick={() => handleAddCart(product)} className="mt-4  bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-1 rounded-xl transition-all">
-              Buy This Now
-            </button>
+              <button onClick={() => handleOrderDetail(product)} className="mt-4  bg-red-600 hover:bg-red-700 text-white py-2 px-1 rounded-xl transition-all">
+                Buy This Now
+              </button>
             </div>
           </div>
         ))}

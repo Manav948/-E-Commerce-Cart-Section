@@ -1,10 +1,16 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { removeFromCart, updateQuantity } from "../features/cart/cartSlice";
 
 function Cart() {
+  const navigate = useNavigate();
   const { cartItem, totalAmount } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  const handleOrderDetail = () => {
+    navigate("/order-detail", { state: cartItem }); 
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black py-12 px-4">
@@ -56,22 +62,21 @@ function Cart() {
                     >
                       Remove
                     </button>
-
-                    <button
-                      className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
-                      onClick={() => dispatch(removeFromCart(item.id))}
-                    >
-                      Buy this now 
-                    </button>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="text-right mt-8">
+            <div className="text-right mt-8 flex flex-row gap-10">
               <h3 className="text-2xl font-bold text-white">
                 Total: <span className="text-green-400">₹{totalAmount}</span>
               </h3>
+              <button
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
+                onClick={handleOrderDetail}
+              >
+                Buy this now
+              </button>
             </div>
           </>
         )}
