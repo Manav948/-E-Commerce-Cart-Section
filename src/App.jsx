@@ -1,10 +1,11 @@
 import { calculateTotals } from "./features/cart/cartSlice"
 import { useEffect } from "react"
-import { useDispatch , useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import Navbar from "./components/Navbar"
 import Cart from "./components/Cart"
 import ProductList from "./components/ProductList"
-
+import Home from "./pages/Home"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 function App() {
   const dispatch = useDispatch();
   const cartItem = useSelector((state) => state.cart.cartItem)
@@ -12,19 +13,17 @@ function App() {
   useEffect(() => {
     dispatch(calculateTotals());
   }, [dispatch, cartItem])
-
-
   return (
-    <>
-      <div>
-        <Navbar />
-        <div className="gap-8">
-          <ProductList />
-          <Cart />
-        </div>
-      </div>
+    <div>
+      <Navbar  /> 
+      <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </Router>
+    </div>
 
-    </>
   )
 }
 

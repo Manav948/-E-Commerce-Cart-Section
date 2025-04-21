@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from 'react-redux'
 import { addToCart } from "../features/cart/cartSlice";
-
+ // hear i used a api fatch 
 const products = [
     { id: 1, name: 'laptop', price: 50000 },
     { id: 2, name: 'SmartPhone', price: 20000 },
