@@ -31,7 +31,7 @@ function Cart() {
                 >
                   <div className="flex items-center gap-4">
                     <img
-                      src={item.image}
+                      src={item.images[0]}
                       alt={item.title}
                       className="w-20 h-20 object-contain bg-white rounded-md"
                     />

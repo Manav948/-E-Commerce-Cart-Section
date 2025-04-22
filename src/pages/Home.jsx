@@ -37,7 +37,7 @@ function ProductList() {
           >
             <div className="w-full h-48 flex items-center justify-center overflow-hidden mb-4">
               <img
-                src={product.image}
+                src={product.images[0]}
                 alt={product.title}
                 className="h-full object-contain transform hover:scale-105 transition-transform duration-300 rounded-2xl"
               />

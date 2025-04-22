@@ -20,7 +20,7 @@ function Detail() {
               className="flex items-center bg-gray-800 p-4 rounded-xl shadow-md hover:shadow-lg transition"
             >
               <img
-                src={item.image}
+                src={item.images[0]}
                 alt={item.title}
                 className="w-28 h-28 object-contain bg-white rounded-lg mr-4"
               />
@@ -53,7 +53,10 @@ function Detail() {
             className="w-full px-4 py-3 rounded-md bg-gray-700 border border-gray-600 text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
           ></textarea>
 
-          <button className="w-full mt-6 py-3 rounded-md bg-green-600 hover:bg-green-700 text-lg font-bold transition">
+          <button
+          type="submit"
+          onClick={() => alert("Order Confirmed!")} 
+          className="w-full mt-6 py-3 rounded-md bg-green-600 hover:bg-green-700 text-lg font-bold transition">
             ✅ Confirm Order
           </button>
         </div>
